@@ -1,0 +1,107 @@
+
+
+.addVehicles{
+    display:flex;
+    /* flex-direction:column; */
+    flex-wrap: wrap;
+    align-items: center;
+    width: 50vw;
+    padding: 1em;
+    gap: 1em;
+    margin:2em auto;
+    border: 1px solid black;
+}
+
+.addVehicles h3{
+    flex-basis: 100%;
+}
+
+.addVehicles .vehicles{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    padding: 1em;
+    max-height: 50vh;
+    overflow: auto;
+    border:1px solid black;   
+    
+}
+
+.vehicles .vehicle{
+    flex-basis:100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    padding: 1em;
+    border: 1px solid black;
+}
+
+.vehicle h3{
+    text-align: center;
+}
+
+.vehicle .incont{
+    position: relative;
+    width: 20vw;
+}
+
+.vehicle .incont input{
+    width: 20vw;
+    outline: none;
+    padding: 1em;
+    border: 1px solid black;
+}
+
+.vehicle .incont  label{
+    position:absolute;
+    pointer-events: none;
+    top: 8px;
+    left: 15px;
+    padding: 0.2em;
+    color:#041415;
+    background-color: white;
+}
+
+
+.vehicle .incont input:focus+label,
+.vehicle .incont input:valid+label,
+.vehicle .incont input:not(:placeholder-shown)+label
+{
+    top: -15px;
+    color: #849fea;
+    transition: 0.2s ease-in-out;
+}
+
+.vehicle .incont input:focus{
+    border-color: #849fea;
+    border-width: 2px;
+}
+
+/* To remove blue fill background */
+.incont input:-webkit-autofill,
+.incont input:-webkit-autofill:focus {
+  transition: background-color 0s 600000s, color 0s 600000s;
+}
+
+
+
+.addVehicles .buttons{
+    flex-basis: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.buttons button{
+    width:15vw;
+    padding: 0.8em;
+    font-size: 1rem;
+    font-weight: 500;
+    outline: none;
+    border: none;
+    color:#eefbfc;    
+    background-color: #5c64e3;
+}

@@ -1,0 +1,105 @@
+.addMaintenance{
+    display:flex;
+    /* flex-direction:column; */
+    flex-wrap: wrap;
+    align-items: center;
+    width: 50vw;
+    padding: 1em;
+    gap: 1em;
+    margin:2em auto;
+    border: 1px solid black;
+}
+
+.addMaintenance h3{
+    flex-basis: 100%;
+}
+
+.addMaintenance .maintenances{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    padding: 1em;
+    max-height: 65vh;
+    overflow: auto;
+    border:1px solid black;   
+    
+}
+
+.maintenances .maintenance{
+    flex-basis:100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    padding: 1em;
+    border: 1px solid black;
+}
+
+.maintenance h3{
+    text-align: center;
+}
+
+.maintenance .incont{
+    position: relative;
+    width: 20vw;
+}
+
+.maintenance .incont input{
+    width: 20vw;
+    outline: none;
+    padding: 1em;
+    border: 1px solid black;
+}
+
+.maintenance .incont  label{
+    position:absolute;
+    pointer-events: none;
+    top: 8px;
+    left: 15px;
+    padding: 0.2em;
+    color:#041415;
+    background-color: white;
+}
+
+
+.maintenance .incont input:focus+label,
+.maintenance .incont input:valid+label,
+.maintenance .incont input:not(:placeholder-shown)+label
+{
+    top: -15px;
+    color: #849fea;
+    transition: 0.2s ease-in-out;
+}
+
+.maintenance .incont input:focus{
+    border-color: #849fea;
+    border-width: 2px;
+}
+
+/* To remove blue fill background */
+.incont input:-webkit-autofill,
+.incont input:-webkit-autofill:focus {
+  transition: background-color 0s 600000s, color 0s 600000s;
+}
+
+
+
+.addMaintenance .buttons{
+    flex-basis: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.buttons button{
+    width:15vw;
+    padding: 0.8em;
+    font-size: 1rem;
+    font-weight: 500;
+    outline: none;
+    border: none;
+    color:#eefbfc;    
+    background-color: #5c64e3;
+}

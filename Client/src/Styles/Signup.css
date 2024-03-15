@@ -1,0 +1,81 @@
+.signup{
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    width:60vw;
+    margin: 5vh auto;
+    padding: 1em;
+    /* border: 1px solid black; */
+}
+
+.signup h3{
+    /* flex-basis: 100%; */
+    text-align: center;
+}
+
+.signup .incont{
+    position: relative;
+    width: 25vw;
+}
+
+.signup .incont input{
+    width: 25vw;
+    outline: none;
+    padding: 1em;
+    border: 1px solid black;
+}
+
+.signup .incont  label{
+    position:absolute;
+    pointer-events: none;
+    top: 8px;
+    left: 15px;
+    padding: 0.2em;
+    color:#041415;
+    background-color: white;
+}
+
+
+.signup .incont input:focus+label,
+.signup .incont input:valid+label,
+.signup .incont input:not(:placeholder-shown)+label
+{
+    top: -15px;
+    color: #849fea;
+    transition: 0.2s ease-in-out;
+}
+
+.signup .incont input:focus{
+    border-color: #849fea;
+    border-width: 2px;
+}
+
+/* To remove blue fill background */
+.incont input:-webkit-autofill,
+.incont input:-webkit-autofill:focus {
+  transition: background-color 0s 600000s, color 0s 600000s;
+}
+
+.signup button{
+    width:25vw;
+    padding: 0.8em;
+    font-size: 1rem;
+    font-weight: 500;
+    outline: none;
+    border: none;
+    color:#eefbfc;    
+    background-color: #5c64e3;
+}
+
+.signup .link{
+    /* flex-basis: 100%; */
+    text-align: center;
+}
+
+.signup .link a{
+    text-decoration: none;
+    color:#5c64e3 ;
+}
