@@ -1,0 +1,32 @@
+.mntcont{
+    width:95vw;
+    margin:2em auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 1em; */
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.03);
+    /* border: 1px solid black; */
+}
+
+.mntcont table{
+    width: 95vw;
+    border-radius: 10px;
+    border-collapse: collapse;
+    padding: 1em;
+    text-align: center;
+}
+
+.mntcont th{
+    border: none;
+    padding: 1em;
+}
+
+.mntcont td{
+    border: none;
+    padding: 1em;
+}
+
+/* .mntcont tr:nth-child(even) {background-color: hsl(186, 71%, 55%, 20%);} */
+.mntcont tr:nth-child(even) {background-color: hsl(224, 71%, 72%, 30%);}

@@ -7,7 +7,8 @@
     padding: 1em;
     gap: 1em;
     margin:2em auto;
-    border: 1px solid black;
+    border-radius: 10px;
+    /* border: 1px solid black; */
 }
 
 .addInsurances h3{
@@ -22,9 +23,25 @@
     padding: 1em;
     max-height: 65vh;
     overflow: auto;
-    border:1px solid black;   
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.03);
+    /* border:1px solid black;    */
     
 }
+
+.insurances::-webkit-scrollbar {
+    width: 10px;
+    margin-right: 10px; /* adjust as needed */
+  }
+  
+  .insurances::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  
+  .insurances::-webkit-scrollbar-thumb {
+    background-color: hsl(186, 71%, 55%, 20%);
+    border-radius: 5px;
+  }
 
 .insurances .insurance{
     flex-basis:100%;
@@ -34,7 +51,9 @@
     align-items: center;
     gap: 1em;
     padding: 1em;
-    border: 1px solid black;
+    border-radius: 10px;
+    background-color: white;
+    /* border: 1px solid black; */
 }
 
 .insurance h3{
@@ -50,6 +69,7 @@
     width: 20vw;
     outline: none;
     padding: 1em;
+    border-radius: 10px;
     border: 1px solid black;
 }
 
@@ -69,12 +89,12 @@
 .insurance .incont input:not(:placeholder-shown)+label
 {
     top: -15px;
-    color: #849fea;
+    color: #3bcdde;
     transition: 0.2s ease-in-out;
 }
 
 .insurance .incont input:focus{
-    border-color: #849fea;
+    border-color: #3bcdde;
     border-width: 2px;
 }
 
@@ -101,5 +121,5 @@
     outline: none;
     border: none;
     color:#eefbfc;    
-    background-color: #5c64e3;
+    background-color: #3bcdde;
 }

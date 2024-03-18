@@ -326,11 +326,90 @@ app.post("/getStats", (req, res) => {
             console.error("Error fetching expiry dates:" + err);
           }
           console.log(result2);
-          res
-            .status(200)
-            .json({ count: result1[0].COUNT, expiryDate: [result2[0]] });
+
+          connection.query(
+            "SELECT SUM(total_cost) AS total_expenditure FROM (SELECT SUM(fl.COST) AS total_cost FROM FUEL_LOG fl JOIN VEHICLES v ON fl.VEHICLE_ID = v.VEHICLE_ID WHERE v.USER_ID = ? AND MONTH(fl.FILL_DATE) = MONTH(CURRENT_DATE()) UNION ALL SELECT SUM(m.COST) AS total_cost FROM MAINTENANCE m JOIN VEHICLES v ON m.VEHICLE_ID = v.VEHICLE_ID WHERE v.USER_ID = ? AND MONTH(m.SERVICE_DATE) = MONTH(CURRENT_DATE())) AS combined_costs",
+            [userId, userId],
+            (err, result3) => {
+              if (err) {
+                console.error("Error fetching monthly cost:" + err);
+              }
+              console.log(result3);
+              res
+                .status(200)
+                .json({
+                  count: result1[0].COUNT,
+                  expiryDates: [result2[0]],
+                  monthlyCost: result3[0].total_expenditure,
+                });
+            }
+          );
         }
       );
+    }
+  );
+});
+
+app.post("/Viewvehicles", (req, res) => {
+  const { userId } = req.body;
+
+  connection.query(
+    "SELECT v.VEHICLE_NAME, v.REGNO, v.OWNER_SERIAL,vd.VEHICLE_TYPE, vd.VEHICLE_MAKER, vd.VEHICLE_MODEL, vd.YEAR, vd.VEHICLE_CLASS, vd.VIN, vd.ENGNO, vd.FUEL_TYPE, vd.EMISSION_NORM FROM VEHICLES v JOIN VEHICLE_DETAILS vd ON v.VEHICLE_ID = vd.VEHICLE_ID WHERE v.USER_ID = ?",
+    [userId],
+    (err, result) => {
+      if (err) {
+        console.error("Error fetching vehicle details:" + err);
+      }
+      console.log(result);
+      res.send(result);
+    }
+  );
+});
+
+app.post("/Viewinsurance", (req, res) => {
+  const { userId } = req.body;
+
+  connection.query(
+    "SELECT v.VEHICLE_NAME, i.INS_PROVIDER,i.POLICYNO,DATE_FORMAT(EXPIRY_DATE, '%M %d, %Y') as EXPIRY_DATE FROM INSURANCE i JOIN VEHICLES v ON i.VEHICLE_ID = v.VEHICLE_ID WHERE v.USER_ID = ?",
+    [userId],
+    (err, result) => {
+      if (err) {
+        console.error("Error fetching insurance details:" + err);
+      }
+      console.log(result);
+      res.send(result);
+    }
+  );
+});
+
+app.post("/Viewmaintenance", (req, res) => {
+  const { userId } = req.body;
+
+  connection.query(
+    "SELECT v.VEHICLE_NAME, DATE_FORMAT(SERVICE_DATE, '%M %d, %Y') as SERVICE_DATE,DESCRIPTION FROM MAINTENANCE m JOIN VEHICLES v ON m.VEHICLE_ID = v.VEHICLE_ID WHERE v.USER_ID = ?",
+    [userId],
+    (err, result) => {
+      if (err) {
+        console.error("Error fetching maintenance details:" + err);
+      }
+      console.log(result);
+      res.send(result);
+    }
+  );
+});
+
+app.post("/Viewfuellogs", (req, res) => {
+  const { userId } = req.body;
+
+  connection.query(
+    "SELECT v.VEHICLE_NAME, DATE_FORMAT(FILL_DATE, '%M %d, %Y') as FILL_DATE,FUEL_VOLUME,COST FROM FUEL_LOG f JOIN VEHICLES v ON f.VEHICLE_ID = v.VEHICLE_ID WHERE v.USER_ID = ? ORDER BY f.FILL_DATE DESC",
+    [userId],
+    (err, result) => {
+      if (err) {
+        console.error("Error fetching fuel logs:" + err);
+      }
+      console.log(result);
+      res.send(result);
     }
   );
 });

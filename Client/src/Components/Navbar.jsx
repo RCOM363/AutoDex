@@ -7,11 +7,13 @@ const Navbar = () => {
     <>
       <nav>
         <div className="logo">AutoDex</div>
-        <ul className="menu">
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/Signin">Signin</Link></li>
-          <li><Link to="/">About</Link></li>
-        </ul>
+        <div className="menucont">
+          <ul className="menu">
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/Signin">Signin</Link></li>
+            <li><Link to="/">About</Link></li>
+          </ul>
+        </div>
       </nav>
     </>
   );

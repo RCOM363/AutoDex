@@ -7,7 +7,8 @@
     padding: 1em;
     gap: 1em;
     margin:2em auto;
-    border: 1px solid black;
+    border-radius: 10px;
+    /* border: 1px solid black; */
 }
 
 .addFuellogs h3{
@@ -22,9 +23,25 @@
     padding: 1em;
     max-height: 65vh;
     overflow: auto;
-    border:1px solid black;   
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.03);
+    /* border:1px solid black;    */
     
 }
+
+.fuellogs::-webkit-scrollbar {
+    width: 10px;
+    margin-right: 10px; /* adjust as needed */
+  }
+  
+  .fuellogs::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  
+  .fuellogs::-webkit-scrollbar-thumb {
+    background-color: hsl(186, 71%, 55%, 20%);
+    border-radius: 5px;
+  }
 
 .fuellogs .fuellog{
     flex-basis:100%;
@@ -34,7 +51,9 @@
     align-items: center;
     gap: 1em;
     padding: 1em;
-    border: 1px solid black;
+    border-radius: 10px;
+    background-color: white;
+    /* border: 1px solid black; */
 }
 
 .fuellog h3{
@@ -50,6 +69,7 @@
     width: 20vw;
     outline: none;
     padding: 1em;
+    border-radius: 10px;
     border: 1px solid black;
 }
 
@@ -69,12 +89,12 @@
 .fuellog .incont input:not(:placeholder-shown)+label
 {
     top: -15px;
-    color: #849fea;
+    color: #3bcdde;
     transition: 0.2s ease-in-out;
 }
 
 .fuellog .incont input:focus{
-    border-color: #849fea;
+    border-color:#3bcdde ;
     border-width: 2px;
 }
 
@@ -97,9 +117,11 @@
     width:15vw;
     padding: 0.8em;
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 600;
     outline: none;
     border: none;
-    color:#eefbfc;    
-    background-color: #5c64e3;
+    color:#eefbfc; 
+    border-radius: 10px;
+    color: #041415;
+    background-color: #3bcdde;
 }
